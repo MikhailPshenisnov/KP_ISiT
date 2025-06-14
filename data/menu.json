@@ -1,0 +1,156 @@
+{
+  "бизнес-ланч": {
+    "name": "Бизнес-ланч",
+    "name_lower": "бизнес-ланч",
+    "name_normal": "бизнес-ланч",
+    "description": "Сытный обед: суп, салат, горячее и напиток",
+    "price": 600,
+    "spiciness": 0.2,
+    "vegetarian": 0.0,
+    "saltiness": 0.4,
+    "sweetness": 0.0
+  },
+  "борщ классический": {
+    "name": "Борщ классический",
+    "name_lower": "борщ классический",
+    "name_normal": "борщ классический",
+    "description": "Наваристый суп со свеклой, говядиной, капустой и сметаной. Подается с пампушками.",
+    "price": 250,
+    "spiciness": 0.3,
+    "vegetarian": 0.0,
+    "saltiness": 0.3,
+    "sweetness": 0.2
+  },
+  "том ям с креветками": {
+    "name": "Том ям с креветками",
+    "name_lower": "том ям с креветками",
+    "name_normal": "тот яма с креветка",
+    "description": "Острый тайский суп на кокосовом молоке с лемонграссом, грибами и лаймом.",
+    "price": 350,
+    "spiciness": 0.7,
+    "vegetarian": 0.0,
+    "saltiness": 0.5,
+    "sweetness": 0.0
+  },
+  "суп-пюре из тыквы": {
+    "name": "Суп-пюре из тыквы",
+    "name_lower": "суп-пюре из тыквы",
+    "name_normal": "суп-пюре из тыква",
+    "description": "Нежный крем-суп с карамелизированным луком и тыквенными семечками.",
+    "price": 250,
+    "spiciness": 0.1,
+    "vegetarian": 1.0,
+    "saltiness": 0.2,
+    "sweetness": 0.2
+  },
+  "паста карбонара": {
+    "name": "Паста карбонара",
+    "name_lower": "паста карбонара",
+    "name_normal": "паста карбонар",
+    "description": "Спагетти с беконом, сливочным соусом и пармезаном.",
+    "price": 450,
+    "spiciness": 0.5,
+    "vegetarian": 0.0,
+    "saltiness": 0.3,
+    "sweetness": 0.1
+  },
+  "куриные крылышки bbq": {
+    "name": "Куриные крылышки BBQ",
+    "name_lower": "куриные крылышки bbq",
+    "name_normal": "куриный крылышко bbq",
+    "description": "Хрустящие запеченные крылышки в медово-чесночном соусе с зеленью.",
+    "price": 650,
+    "spiciness": 0.6,
+    "vegetarian": 0.0,
+    "saltiness": 0.5,
+    "sweetness": 0.2
+  },
+  "греческий салат": {
+    "name": "Греческий салат",
+    "name_lower": "греческий салат",
+    "name_normal": "греческий салат",
+    "description": "Свежие овощи, оливки, фета и оливковое масло.",
+    "price": 350,
+    "spiciness": 0.1,
+    "vegetarian": 1.0,
+    "saltiness": 0.3,
+    "sweetness": 0.0
+  },
+  "бургер классический": {
+    "name": "Бургер классический",
+    "name_lower": "бургер классический",
+    "name_normal": "бургер классический",
+    "description": "Говяжья котлета, сыр чеддер, бекон, соус и овощи в булочке бриошь.",
+    "price": 300,
+    "spiciness": 0.3,
+    "vegetarian": 0.0,
+    "saltiness": 0.3,
+    "sweetness": 0.0
+  },
+  "картофель фри": {
+    "name": "Картофель фри",
+    "name_lower": "картофель фри",
+    "name_normal": "картофель фри",
+    "description": "Хрустящий, с розмарином и морской солью.",
+    "price": 250,
+    "spiciness": 0.0,
+    "vegetarian": 1.0,
+    "saltiness": 0.4,
+    "sweetness": 0.0
+  },
+  "гречка с грибами": {
+    "name": "Гречка с грибами",
+    "name_lower": "гречка с грибами",
+    "name_normal": "гречка с гриб",
+    "description": "С обжаренными шампиньонами и луком.",
+    "price": 300,
+    "spiciness": 0.1,
+    "vegetarian": 1.0,
+    "saltiness": 0.3,
+    "sweetness": 0.0
+  },
+  "лимонад домашний": {
+    "name": "Лимонад домашний",
+    "name_lower": "лимонад домашний",
+    "name_normal": "лимонад домашний",
+    "description": "Освежающий: мята, лимон, лайм и имбирь на выбор.",
+    "price": 150,
+    "spiciness": 0.0,
+    "vegetarian": 1.0,
+    "saltiness": 0.0,
+    "sweetness": 0.4
+  },
+  "капучино": {
+    "name": "Капучино",
+    "name_lower": "капучино",
+    "name_normal": "капучино",
+    "description": "Крепкий эспрессо с молочной пеной и корицей.",
+    "price": 200,
+    "spiciness": 0.0,
+    "vegetarian": 1.0,
+    "saltiness": 0.0,
+    "sweetness": 0.0
+  },
+  "тирамису": {
+    "name": "Тирамису",
+    "name_lower": "тирамису",
+    "name_normal": "тирамис",
+    "description": "Классический итальянский десерт с кофейной пропиткой.",
+    "price": 150,
+    "spiciness": 0.0,
+    "vegetarian": 1.0,
+    "saltiness": 0.0,
+    "sweetness": 1.0
+  },
+  "чизкейк нью-йорк": {
+    "name": "Чизкейк Нью-Йорк",
+    "name_lower": "чизкейк нью-йорк",
+    "name_normal": "чизкейк нью-йорк",
+    "description": "Нежный творожный крем на песочной основе.",
+    "price": 200,
+    "spiciness": 0.0,
+    "vegetarian": 1.0,
+    "saltiness": 0.0,
+    "sweetness": 1.0
+  }
+}
