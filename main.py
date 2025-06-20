@@ -103,6 +103,21 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         print(f"Ответ бота: {response}")
         print()
 
+    coupon_flag, coupon_message = bot.is_coupon_needed(user_id)
+    if bot.get_user_sentiment(user_id) <= -0.75:
+        sorry_message = bot.apologize(user_id)
+        await update.message.reply_text(
+            sorry_message,
+            reply_markup=bot.menu_keyboard,
+            parse_mode='Markdown'
+        )
+    elif coupon_flag:
+        await update.message.reply_text(
+            coupon_message,
+            reply_markup=bot.menu_keyboard,
+            parse_mode='Markdown'
+        )
+
 
 def main():
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()

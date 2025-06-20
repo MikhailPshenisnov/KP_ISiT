@@ -1,5 +1,6 @@
 import nltk
 import random
+import string
 from telegram import ReplyKeyboardMarkup
 
 from data_preparation import get_emo_dict, get_dialogues, get_menu, get_intent_dataset
@@ -98,6 +99,10 @@ class RestaurantAssistantBot:
             # Штраф за вегетарианское блюдо в невегетарианском заказе
             if order_stats['vegetarian'] < 0.5 and item_data['vegetarian'] > 0.5:
                 score -= 0.15
+
+            # Штраф за основное блюдо после десерта
+            if order_stats['sweetness'] > 0.5 and item_data['sweetness'] < 0.3:
+                score -= 0.2
 
             # Бонус за десерт после основного блюда
             if order_stats['sweetness'] < 0.3 and item_data['sweetness'] > 0.7:
@@ -310,6 +315,9 @@ class RestaurantAssistantBot:
 
                 self.context[user_id]["recommendation_counter"] = 0
 
+        if self.context[user_id]["sentiment"] >= 0:
+            self.context[user_id]["coupon_counter"] += 1
+
         return order_text
 
     def handle_message(self, text, user_id):
@@ -333,7 +341,9 @@ class RestaurantAssistantBot:
                 "last_intent": None,
                 "sentiment": 0,
                 "entities": [],
-                "recommendation_counter": 5
+                "recommendation_counter": 5,
+                "coupon_counter": 0,
+                "apologize_counter": 0
             }
 
         new_user_sentiment = (self.context[user_id]["sentiment"] + sentiment) / 2
@@ -344,11 +354,16 @@ class RestaurantAssistantBot:
 
         new_user_recommendation_counter = self.context[user_id]["recommendation_counter"] + 1
 
+        old_user_coupon_counter = self.context[user_id]["coupon_counter"]
+        old_user_apologize_counter = self.context[user_id]["apologize_counter"]
+
         self.context[user_id] = {
             "last_intent": None,
             "sentiment": new_user_sentiment,
             "entities": entities,
-            "recommendation_counter": new_user_recommendation_counter
+            "recommendation_counter": new_user_recommendation_counter,
+            "coupon_counter": old_user_coupon_counter,
+            "apologize_counter": old_user_apologize_counter
         }
 
         if intent is not None:
@@ -382,3 +397,29 @@ class RestaurantAssistantBot:
         """Получение настроения пользователя"""
 
         return self.context[user_id]["sentiment"]
+
+    def apologize(self, user_id):
+        """Извинение перед пользователем"""
+        sorry_message = (f"Мне кажется вы чем-то недовольны, а у меня не получается вам помочь...\n\n"
+                         f"Вы можете задать ваш вопрос нашему менеджеру по почте: restaurant@restaurant.com, "
+                         f"там же вы можете оставить отзыв о работе интеллектуального помощника\n\n"
+                         f"Также могу предложить вам купон \"SORRY10\", который дает 10% скидку при предъявлении "
+                         f"его официанту в одном из наших заведений")
+
+        if self.context[user_id]["apologize_counter"] >= 3:
+            self.context[user_id]["apologize_counter"] = 0
+            return sorry_message
+        else:
+            self.context[user_id]["apologize_counter"] += 1
+
+        return None
+
+    def is_coupon_needed(self, user_id):
+        """Купон на скидку пользователя"""
+        if self.context[user_id]["coupon_counter"] >= 5:
+            self.context[user_id]["coupon_counter"] = 0
+            coupon_message = (f"Вот ваш персональный купон на скидку: \n\n"
+                              f"```{''.join(random.choice(string.ascii_letters + string.digits) for _ in range(8))}```\n\n"
+                              f"Купон начнет действовать уже с завтрашнего дня, просто предъявите его официанту!")
+            return True, coupon_message
+        return False, None
